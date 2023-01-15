@@ -7,8 +7,8 @@ import 'package:weather_stations/data/repositories/weather_repository_impl.dart'
 
 import 'package:weather_stations/di/locator.dart' as locator;
 
-import 'package:weather_stations/domain/location_repository.dart';
-import 'package:weather_stations/domain/weather_repository.dart';
+import 'package:weather_stations/domain/repositories/location_repository.dart';
+import 'package:weather_stations/domain/repositories/weather_repository.dart';
 
 import 'package:weather_stations/presentation/blocs/location/location_bloc.dart';
 import 'package:weather_stations/presentation/journeys/home_weather_view.dart';

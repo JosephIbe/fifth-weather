@@ -1,11 +1,16 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:weather_stations/common/size_constants.dart';
 import 'package:weather_stations/common/text_constants.dart';
+
+import 'package:weather_stations/di/locator.dart' as locator;
+
 import 'package:weather_stations/presentation/blocs/location/location_bloc.dart';
 import 'package:weather_stations/presentation/widgets/weather_overview.dart';
+
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeWeatherView extends StatefulWidget {
   const HomeWeatherView({Key? key}) : super(key: key);
@@ -59,7 +64,7 @@ class _HomeWeatherViewState extends State<HomeWeatherView> {
                 );
               }
               if(state is LocationStateSuccess){
-                return const WeatherOverview();
+                return WeatherOverview(currentWeatherUseCase: locator.locator(),);
               }
               return Container(
                 width: size.width,

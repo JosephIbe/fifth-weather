@@ -1,12 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 
 import 'package:weather_stations/common/size_constants.dart';
 import 'package:weather_stations/common/text_constants.dart';
 
-import 'package:weather_stations/data/models/current_weather_model.dart';
-import 'package:weather_stations/data/models/forecast_weather_model.dart';
 import 'package:weather_stations/di/locator.dart' as locator;
 
 import 'package:weather_stations/presentation/blocs/current_weather/current_weather_bloc.dart';
@@ -142,7 +138,7 @@ class _AllWeatherViewState extends State<AllWeatherView> {
             },
           ),
           BlocProvider<ForecastWeatherBloc>(
-            create: (_) => ForecastWeatherBloc(weatherRepository: locator.locator()),
+            create: (_) => ForecastWeatherBloc(forecastWeatherUseCase: locator.locator()),
             child: const ForecastsWeatherView(),
           )
         ],

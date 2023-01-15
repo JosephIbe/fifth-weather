@@ -1,11 +1,10 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:hive/hive.dart';
+
 import 'package:weather_stations/common/text_constants.dart';
-import 'package:weather_stations/domain/location_repository.dart';
+import 'package:weather_stations/domain/repositories/location_repository.dart';
 
 part 'location_event.dart';
 part 'location_state.dart';

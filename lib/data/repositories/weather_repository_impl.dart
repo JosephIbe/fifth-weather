@@ -3,7 +3,7 @@ import 'package:weather_stations/data/data_sources/weather_remote_data_source.da
 import 'package:weather_stations/data/models/current_weather_model.dart';
 import 'package:weather_stations/data/models/forecast_weather_model.dart';
 
-import 'package:weather_stations/domain/weather_repository.dart';
+import 'package:weather_stations/domain/repositories/weather_repository.dart';
 
 class WeatherRepositoryImpl extends WeatherRepository {
 

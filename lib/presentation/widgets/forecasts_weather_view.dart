@@ -60,21 +60,19 @@ class _ForecastsWeatherViewState extends State<ForecastsWeatherView> {
   Widget buildForeCastDay({required ForecastDayItem foreCastItem}) {
     return ListTile(
       // leading: Text(getDayOfWeekFromUTCDate(foreCastItem.dt)),
-      leading: Text('today nau'),
-      title: Icon(Icons.cloud),
+      leading: const Text('today nau'),
+      title: const Icon(Icons.cloud),
       trailing: Text('${foreCastItem.temp!.max}\u00B0'),
     );
   }
 
   String getDayOfWeekFromUTCDate(int? dt) {
-    print('utc dt:\t$dt');
-
     var dateTime = DateFormat("yyyy-MM-dd HH:mm:ss").parse(dt.toString(), true);
-    print('dateTime:\t$dateTime');
+    // print('dateTime:\t$dateTime');
     var dateLocal = dateTime.toLocal();
-    print('local dateTime:\t$dateLocal');
+    // print('local dateTime:\t$dateLocal');
 
-    print('day of week string:\t${DateFormat('EEEE').format(dateLocal)}');
+    // print('day of week string:\t${DateFormat('EEEE').format(dateLocal)}');
     return 'Today haha';
   }
 

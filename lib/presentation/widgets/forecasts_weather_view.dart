@@ -8,7 +8,6 @@ import 'package:weather_stations/presentation/blocs/forecast_weather/forecast_we
 
 class ForecastsWeatherView extends StatefulWidget {
   const ForecastsWeatherView({Key? key}) : super(key: key);
-
   @override
   State<ForecastsWeatherView> createState() => _ForecastsWeatherViewState();
 }
@@ -22,12 +21,12 @@ class _ForecastsWeatherViewState extends State<ForecastsWeatherView> {
     super.initState();
 
     box = Hive.box(TextConstants.weatherBox);
-
     context.read<ForecastWeatherBloc>()
         .add(GetWeatherForecast(
         latitude: box.get(TextConstants.latitude),
         longitude: box.get(TextConstants.longitude)
     ));
+
   }
 
   @override
@@ -81,7 +80,6 @@ class _ForecastsWeatherViewState extends State<ForecastsWeatherView> {
     // String d = DateFormat('yyy-MMM-dd').format(serverDate);
     // print('d:\t$d');
     // print(DateFormat('EEEE').format(serverDate));
-
     return DateFormat('EEEE').format(serverDate);
   }
 

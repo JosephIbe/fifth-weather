@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 
 import 'package:weather_stations/data/models/forecast_weather_model.dart';
 import 'package:weather_stations/domain/entities/weather_request_params.dart';
-import 'package:weather_stations/domain/repositories/weather_repository.dart';
 import 'package:weather_stations/domain/usecases/forecast_weather_usecase.dart';
 
 part 'forecast_weather_event.dart';
@@ -22,7 +21,6 @@ class ForecastWeatherBloc extends Bloc<ForecastWeatherEvent, ForecastWeatherStat
   void _getWeatherForecast(GetWeatherForecast event, Emitter<ForecastWeatherState> emit) async {
     emit(ForecastWeatherStateLoading());
     final data = await _forecastWeatherUseCase(WeatherRequestParams(latitude: event.latitude, longitude: event.longitude));
-    print('getWeatherForecast data:\n$data');
     emit(ForecastWeatherStateSuccess(forecastWeatherModel: data));
   }
 

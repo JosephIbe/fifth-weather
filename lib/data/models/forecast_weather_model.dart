@@ -101,7 +101,6 @@ class ForecastDayItem {
     required this.gust,
     required this.clouds,
     required this.pop,
-    // required this.rain,
   });
 
   int? dt;
@@ -117,7 +116,6 @@ class ForecastDayItem {
   double? gust;
   int? clouds;
   double? pop;
-  // double? rain;
 
   factory ForecastDayItem.fromJson(Map<String, dynamic> json) => ForecastDayItem(
     dt: json["dt"],
@@ -133,7 +131,6 @@ class ForecastDayItem {
     gust: json["gust"].toDouble(),
     clouds: json["clouds"],
     pop: json["pop"].toDouble(),
-    // rain: json["rain"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -150,7 +147,6 @@ class ForecastDayItem {
     "gust": gust,
     "clouds": clouds,
     "pop": pop,
-    // "rain": rain,
   };
 }
 

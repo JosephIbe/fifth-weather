@@ -1,9 +1,3 @@
-import 'package:mockito/mockito.dart';
-import 'package:mockito/annotations.dart';
-
-@GenerateNiceMocks([MockSpec<CurrentWeatherModel>()])
-import 'current_weather_model.mocks.dart';
-
 class CurrentWeatherModel {
 
   CurrentWeatherModel({

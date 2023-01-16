@@ -5,7 +5,6 @@ import 'package:hive/hive.dart';
 
 import 'package:weather_stations/common/text_constants.dart';
 
-import 'package:weather_stations/di/locator.dart' as locator;
 import 'package:weather_stations/domain/entities/no_params.dart';
 
 import 'package:weather_stations/domain/usecases/location_usecase.dart';

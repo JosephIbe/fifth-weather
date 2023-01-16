@@ -58,22 +58,31 @@ class _ForecastsWeatherViewState extends State<ForecastsWeatherView> {
   }
 
   Widget buildForeCastDay({required ForecastDayItem foreCastItem}) {
-    return ListTile(
-      // leading: Text(getDayOfWeekFromUTCDate(foreCastItem.dt)),
-      leading: const Text('today nau'),
-      title: const Icon(Icons.cloud),
-      trailing: Text('${foreCastItem.temp!.max}\u00B0'),
+    return Padding(
+      padding: const EdgeInsets.all(18.0),
+      child: Row(
+        children: [
+          Expanded(flex: 1, child: Text(getDayOfWeekFromUTCDate(foreCastItem.dt))),
+          const Expanded(flex: 2, child: Icon(Icons.cloud)),
+          Expanded(flex: 1, child: Padding(
+            padding: const EdgeInsets.fromLTRB(38.0, 0, 0, 10),
+            child: Text('${foreCastItem.temp!.max}\u00B0'),
+          )),
+        ],
+      ),
     );
   }
 
   String getDayOfWeekFromUTCDate(int? dt) {
-    var dateTime = DateFormat("yyyy-MM-dd HH:mm:ss").parse(dt.toString(), true);
-    // print('dateTime:\t$dateTime');
-    var dateLocal = dateTime.toLocal();
-    // print('local dateTime:\t$dateLocal');
+    final serverDate = DateTime.fromMillisecondsSinceEpoch(dt! * 1000, isUtc: true);
+    // String dateString = "${serverDate.year}/${serverDate.month}/${serverDate.day}";
+    // print('date String:\t$dateString');
 
-    // print('day of week string:\t${DateFormat('EEEE').format(dateLocal)}');
-    return 'Today haha';
+    // String d = DateFormat('yyy-MMM-dd').format(serverDate);
+    // print('d:\t$d');
+    // print(DateFormat('EEEE').format(serverDate));
+
+    return DateFormat('EEEE').format(serverDate);
   }
 
 }

@@ -38,8 +38,7 @@ void main() async {
       providers: [
         BlocProvider<LocationBloc>(
           create: (context){
-            final repo = context.read<LocationRepository>();
-            return LocationBloc(locationRepository: repo)..add(GetUserLocation());
+            return LocationBloc(locationUseCase: locator.locator())..add(GetUserLocation());
           },
         ),
       ],
@@ -59,4 +58,5 @@ class WeatherApp extends StatelessWidget {
       home: HomeWeatherView(),
     );
   }
+
 }

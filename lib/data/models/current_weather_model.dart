@@ -1,3 +1,9 @@
+import 'package:mockito/mockito.dart';
+import 'package:mockito/annotations.dart';
+
+@GenerateNiceMocks([MockSpec<CurrentWeatherModel>()])
+import 'current_weather_model.mocks.dart';
+
 class CurrentWeatherModel {
 
   CurrentWeatherModel({
@@ -17,7 +23,7 @@ class CurrentWeatherModel {
   });
 
   Coord? coord;
-  List<Weather?>? weather;
+  List<CurrentWeather?>? weather;
   String? base;
   Main? main;
   int? visibility;
@@ -32,7 +38,7 @@ class CurrentWeatherModel {
 
   factory CurrentWeatherModel.fromJson(Map<String, dynamic> json) => CurrentWeatherModel(
     coord: Coord.fromJson(json["coord"]),
-    weather: json["weather"] == null ? [] : List<Weather?>.from(json["weather"]!.map((x) => Weather.fromJson(x))),
+    weather: json["weather"] == null ? [] : List<CurrentWeather?>.from(json["weather"]!.map((x) => CurrentWeather.fromJson(x))),
     base: json["base"],
     main: Main.fromJson(json["main"]),
     visibility: json["visibility"],
@@ -167,8 +173,8 @@ class Sys {
   };
 }
 
-class Weather {
-  Weather({
+class CurrentWeather {
+  CurrentWeather({
     required this.id,
     required this.main,
     required this.description,
@@ -180,7 +186,7 @@ class Weather {
   String? description;
   String? icon;
 
-  factory Weather.fromJson(Map<String, dynamic> json) => Weather(
+  factory CurrentWeather.fromJson(Map<String, dynamic> json) => CurrentWeather(
     id: json["id"],
     main: json["main"],
     description: json["description"],

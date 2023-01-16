@@ -13,6 +13,7 @@ import 'package:weather_stations/domain/repositories/weather_repository.dart';
 
 import 'package:weather_stations/domain/usecases/current_weather_usecase.dart';
 import 'package:weather_stations/domain/usecases/forecast_weather_usecase.dart';
+import 'package:weather_stations/domain/usecases/location_usecase.dart';
 
 import 'package:weather_stations/presentation/blocs/forecast_weather/forecast_weather_bloc.dart';
 import 'package:weather_stations/presentation/blocs/location/location_bloc.dart';
@@ -32,8 +33,9 @@ Future init() async {
 
   locator.registerLazySingleton<CurrentWeatherUseCase>(() => CurrentWeatherUseCase(locator()));
   locator.registerLazySingleton<ForecastWeatherUseCase>(() => ForecastWeatherUseCase(locator()));
+  locator.registerLazySingleton<LocationUseCase>(() => LocationUseCase(locator()));
 
-  locator.registerFactory(() => LocationBloc(locationRepository: locator()));
+  locator.registerFactory(() => LocationBloc(locationUseCase: locator()));
   locator.registerFactory(() => CurrentWeatherBloc(currentWeatherUseCase: locator()));
   locator.registerFactory(() => ForecastWeatherBloc(forecastWeatherUseCase: locator()));
 
